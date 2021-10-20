@@ -10,11 +10,6 @@ app.use(cors());
 // db connection
 connect();
 
-const Clients = require("./model/clients");
-app.get("/read", (req, res) => {
-  res.send("hai");
-});
-
 // routes
 app.use("/api", require("./router/router"));
 app.use("/api/clients", require("./controller/clients"));
