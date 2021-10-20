@@ -12,7 +12,7 @@ app.use(cors());
 connect();
 
 const Clients = require("./model/clients");
-app.get("/", (req, res) => {
+app.get("/read", (req, res) => {
   res.send("hai");
 });
 
