@@ -12,6 +12,12 @@ app.use(cors());
 connect();
 
 // routes
+const Clients = require("./model/clients");
+app.get("/client", (req, res) => {
+  Clients.find()
+    .then((client) => res.json(client))
+    .catch((err) => res.status(400).json(`Error: ${err}`));
+});
 app.use("/api", require("./router/router"));
 app.use("/api/clients", require("./controller/clients"));
 app.use("/api/teams", require("./controller/teams"));
