@@ -11,6 +11,13 @@ app.use(cors());
 // db connection
 connect();
 
+const Clients = require("./model/clients");
+app.get("/", (req, res) => {
+  Clients.find()
+    .then((client) => res.json(client))
+    .catch((err) => res.status(400).json(`Error: ${err}`));
+});
+
 // routes
 app.use("/api", require("./router/router"));
 app.use("/api/clients", require("./controller/clients"));
