@@ -13,9 +13,7 @@ connect();
 
 const Clients = require("./model/clients");
 app.get("/", (req, res) => {
-  Clients.find()
-    .then((client) => res.json(client))
-    .catch((err) => res.status(400).json(`Error: ${err}`));
+  res.send("hai");
 });
 
 // routes
