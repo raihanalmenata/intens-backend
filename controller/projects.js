@@ -5,7 +5,7 @@ const Projects = require("../model/projects");
 
 const storage = multer.diskStorage({
   destination: (req, file, callback) => {
-    callback(null, "../public/uploads/projects");
+    callback(null, "./uploads/projects");
   },
 
   filename: (req, file, callback) => {

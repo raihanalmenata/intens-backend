@@ -6,7 +6,7 @@ const auth = require("../middleware/auth");
 
 const storage = multer.diskStorage({
   destination: (req, file, callback) => {
-    callback(null, "../public/uploads/teams");
+    callback(null, "./uploads/teams");
   },
 
   filename: (req, file, callback) => {
