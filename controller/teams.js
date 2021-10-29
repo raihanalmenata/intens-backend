@@ -26,7 +26,6 @@ router.post("/add", uploads.single("gambar"), (req, res) => {
   const newTeam = new Teams({
     nama: req.body.nama,
     jabatan: req.body.jabatan,
-    email: req.body.email,
     gambar: req.file.originalname,
   });
 
@@ -47,12 +46,11 @@ router.put("/update/:id", uploads.single("gambar"), (req, res) => {
     .then((team) => {
       team.nama = req.body.nama;
       team.jabatan = req.body.jabatan;
-      team.email = req.body.email;
       team.gambar = req.file.originalname;
 
       team
         .save()
-        .then(() => res.json("deleted success!"))
+        .then(() => res.json("updated success!"))
         .catch((err) => res.status(400).json(`Error: ${err}`));
     })
     .catch((err) => res.status(400).json(`Error: ${err}`));

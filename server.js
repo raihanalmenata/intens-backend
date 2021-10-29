@@ -10,17 +10,13 @@ app.use(cors());
 
 // db connection
 connect();
-
-// test
-app.get("/read", (req, res) => {
-  res.send("halooo");
-});
-
+// mongodb+srv://admin:admin@intens.hh048.mongodb.net/intens?retryWrites=true&w=majority
 // static file
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // routes
 app.use("/api", require("./router/router"));
+app.use("/api/user", require("./controller/user"));
 app.use("/api/clients", require("./controller/clients"));
 app.use("/api/teams", require("./controller/teams"));
 app.use("/api/projects", require("./controller/projects"));

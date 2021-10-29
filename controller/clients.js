@@ -24,8 +24,6 @@ router.get("/", (req, res) => {
 router.post("/add", uploads.single("gambar"), (req, res) => {
   const newClient = new Clients({
     nama: req.body.nama,
-    telepon: req.body.telepon,
-    email: req.body.email,
     gambar: req.file.originalname,
   });
 
@@ -45,15 +43,14 @@ router.put("/update/:id", uploads.single("gambar"), (req, res) => {
   Clients.findById(req.params.id)
     .then((client) => {
       client.nama = req.body.nama;
-      client.telepon = req.body.telepon;
-      client.email = req.body.email;
       client.gambar = req.file.originalname;
 
       client
         .save()
-        .then(() => res.json({ message: "update success!" }))
+        .then(() => res.json("updated success!"))
         .catch((err) => res.status(400).json(`Error: ${err}`));
     })
+
     .catch((err) => res.status(400).json(`Error: ${err}`));
 });
 

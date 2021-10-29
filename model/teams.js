@@ -2,10 +2,9 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const teamSchema = new Schema({
-  nama: { type: String, required: true },
-  jabatan: { type: String, required: true },
-  email: { type: String, required: true },
-  gambar: { type: String, required: true },
+  nama: { type: String },
+  jabatan: { type: String },
+  gambar: { type: String },
 });
 
 const Teams = mongoose.model("Teams", teamSchema);

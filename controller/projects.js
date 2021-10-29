@@ -49,7 +49,7 @@ router.put("/update/:id", uploads.single("gambar"), (req, res) => {
 
       projects
         .save()
-        .then(() => res.json("deleted success!"))
+        .then(() => res.json("updated success!"))
         .catch((err) => res.status(400).json(`Error: ${err}`));
     })
     .catch((err) => res.status(400).json(`Error: ${err}`));
