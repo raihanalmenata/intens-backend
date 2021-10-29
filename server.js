@@ -21,6 +21,6 @@ app.use("/api/clients", require("./controller/clients"));
 app.use("/api/teams", require("./controller/teams"));
 app.use("/api/projects", require("./controller/projects"));
 
-app.listen(process.env.PORT || 8080, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log(`Server running on http://localhost:${process.env.PORT}`);
 });
